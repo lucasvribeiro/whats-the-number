@@ -20,13 +20,21 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ placeholder, value, onChange, disabled }) => {
+const Input = ({ placeholder, value, onChange, disabled, triggerButton }) => {
+  // Trigger Button when 'Enter' is pressed
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      triggerButton();
+    }
+  };
+
   return (
     <StyledInput
       placeholder={placeholder}
       value={value}
       onChange={onChange}
       disabled={disabled}
+      onKeyDown={handleKeyDown}
       type="number"
     />
   );

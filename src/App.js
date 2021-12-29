@@ -6,8 +6,8 @@ import Title from "./components/Title/Title";
 import Digit from "./components/Digit/Digit";
 
 import { getNumber } from "./services/api";
-
 import { MIN_VALUE, MAX_VALUE } from "./services/consts";
+import refreshImg from "./images/refresh.png";
 
 import "./App.css";
 
@@ -58,7 +58,7 @@ const statusOptions = [
 function App() {
   const [drawnNumber, setDrawnNumber] = useState();
 
-  const [guessNumber, setGuessNumber] = useState();
+  const [guessNumber, setGuessNumber] = useState("");
   const [guessNumberDigits, setGuessNumberDigits] = useState(null);
 
   const [gameStatus, setGameStatus] = useState(statusOptions[0]);
@@ -103,7 +103,7 @@ function App() {
         setDrawnNumber(res.data.value);
       })
       .catch((error) => {
-        console.log(error.data);
+        console.log(error.response);
       });
   };
 
@@ -150,6 +150,7 @@ function App() {
               bgColorTwo="#9E9E9E"
               onClick={handleNewGameButton}
             >
+              <img src={refreshImg} alt="New gate" className="new-game-img"/>
               NOVA PARTIDA
             </Button>
           </div>
@@ -160,6 +161,7 @@ function App() {
         <Input
           placeholder="Digite o palpite"
           value={guessNumber}
+          triggerButton={handleGuessButton}
           onChange={handleGuessChanged}
           disabled={
             gameStatus.type === "error" || gameStatus.type === "correct"
