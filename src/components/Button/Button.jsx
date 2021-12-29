@@ -4,13 +4,15 @@ import PropTypes from "prop-types";
 const StyledButton = styled.button`
   width: fit-content;
   height: 42px;
-  padding: 0 10px;
+  padding: 0 12px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  margin: 0 6px;
 
   font-size: 12px;
   font-weight: bold;
+  font-family: "Roboto", sans-serif !important;
 
   color: ${(props) => props.fnColor};
   background: linear-gradient(

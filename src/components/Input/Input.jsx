@@ -10,6 +10,8 @@ const StyledInput = styled.input`
   border: 1px solid #cfcfcf;
   padding: 0 12px;
 
+  margin: 0 6px;
+
   transition: all 0.3s ease;
 
   &:focus {

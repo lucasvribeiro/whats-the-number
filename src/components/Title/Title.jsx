@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledTitle = styled.h2`
   letter-spacing: -1px;
   font-size: 36px;
+  margin: 0;
 
   background: linear-gradient(
     ${(props) => props.colorOne},
