@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Digit from "./components/Digit/Digit";
+
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Digit digit={0} color="green" />
+      <Digit digit={1} color="green" />
+      <Digit digit={2} color="green" />
+      <Digit digit={3} color="green" />
+      <Digit digit={4} color="green" />
+      <Digit digit={5} color="green" />
+      <Digit digit={6} color="green" />
+      <Digit digit={7} color="green" />
+      <Digit digit={8} color="green" />
+      <Digit digit={9} color="green" />
     </div>
   );
 }
