@@ -8,7 +8,7 @@ const StyledButton = styled.button`
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  margin: 0 6px;
+  margin: 0 4px;
 
   font-size: 12px;
   font-weight: bold;
@@ -26,12 +26,20 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ children, fnColor, bgColorOne, bgColorTwo, disabled }) => {
+const Button = ({
+  children,
+  fnColor,
+  bgColorOne,
+  bgColorTwo,
+  onClick,
+  disabled,
+}) => {
   return (
     <StyledButton
       fnColor={fnColor}
       bgColorOne={bgColorOne}
       bgColorTwo={bgColorTwo}
+      onClick={onClick}
       disabled={disabled}
     >
       {children}
@@ -43,6 +51,7 @@ Button.propTypes = {
   fnColor: PropTypes.string,
   bgColorOne: PropTypes.string,
   bgColorTwo: PropTypes.string,
+  onClick: PropTypes.func,
   disabled: PropTypes.bool,
 };
 

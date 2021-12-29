@@ -10,7 +10,7 @@ const StyledInput = styled.input`
   border: 1px solid #cfcfcf;
   padding: 0 12px;
 
-  margin: 0 6px;
+  margin: 0 4px;
 
   transition: all 0.3s ease;
 
@@ -20,8 +20,15 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ placeholder, disabled }) => {
-  return <StyledInput placeholder={placeholder} disabled={disabled} />;
+const Input = ({ placeholder, value, onChange, disabled }) => {
+  return (
+    <StyledInput
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      disabled={disabled}
+    />
+  );
 };
 
 Input.propTypes = {
