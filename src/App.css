@@ -2,7 +2,31 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: linear-gradient(#eeeeee, #ffffff);
+}
+
+.top-container {
+  width: 100vh;
+  height: 20vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.center-container {
+  width: 100vh;
+  height: 60vh;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+}
+
+.bottom-container {
+  width: 100vh;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
 }
