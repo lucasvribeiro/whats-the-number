@@ -1,20 +1,18 @@
-import Digit from "./components/Digit/Digit";
+// import Digit from "./components/Digit/Digit";
+
+// import { defaultColor, correctColor, errorColor } from "./services/colors";
 
 import "./App.css";
+import Input from "./components/Input/Input";
 
 function App() {
   return (
     <div className="App">
-      <Digit digit={0} color="green" />
-      <Digit digit={1} color="green" />
-      <Digit digit={2} color="green" />
-      <Digit digit={3} color="green" />
-      <Digit digit={4} color="green" />
-      <Digit digit={5} color="green" />
-      <Digit digit={6} color="green" />
-      <Digit digit={7} color="green" />
-      <Digit digit={8} color="green" />
-      <Digit digit={9} color="green" />
+      {/* <Digit digit={0} color={defaultColor} />
+      <Digit digit={1} color={correctColor} />
+      <Digit digit={2} color={errorColor} /> */}
+
+      <Input placeholder="Digite o palpite" />
     </div>
   );
 }
