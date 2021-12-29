@@ -116,6 +116,114 @@ const StyledSegment = styled.div`
     border-left: 13px solid transparent;
     border-right: 13px solid transparent;
   }
+
+  @media only screen and (max-width: 480px) {
+    .right {
+      right: 0;
+
+      width: 0px;
+      height: 30px;
+
+      border-radius: 0 6px 6px 0;
+    }
+
+    .right-top {
+      top: 1px;
+
+      border-bottom: 6px solid transparent;
+      border-right: 12px solid var(--primary-color);
+      border-top: 14px solid transparent;
+    }
+
+    .right-bottom {
+      bottom: 1px;
+
+      border-bottom: 14px solid transparent;
+      border-right: 12px solid var(--primary-color);
+      border-top: 6px solid transparent;
+    }
+
+    .left-top {
+      top: 1px;
+
+      border-left: 12px solid var(--primary-color);
+      border-top: 14px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+
+    .left-bottom {
+      bottom: 1px;
+
+      border-left: 12px solid var(--primary-color);
+      border-top: 6px solid transparent;
+      border-bottom: 14px solid transparent;
+    }
+
+    .left {
+      left: 0;
+
+      width: 0px;
+      height: 30px;
+
+      border-radius: 6px 0 0 6px;
+    }
+
+    .top {
+      top: 0;
+      left: 2px;
+
+      height: 0px;
+      width: 30px;
+
+      border-top: 14px solid var(--primary-color);
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+
+      border-radius: 6px 6px 0 0;
+    }
+
+    .bottom {
+      bottom: 0;
+      left: 2px;
+
+      height: 0px;
+      width: 30px;
+
+      border-bottom: 14px solid var(--primary-color);
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+
+      border-radius: 0 0 6px 6px;
+    }
+
+    .middle {
+      top: 46px;
+      left: 3px;
+
+      height: 0px;
+      width: 26px;
+
+      border-bottom: 6px solid var(--primary-color);
+      border-left: 13px solid transparent;
+      border-right: 13px solid transparent;
+    }
+
+    .middle::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+
+      top: 6px;
+      left: -13px;
+
+      height: 0px;
+      width: 26px;
+
+      border-top: 6px solid var(--primary-color);
+      border-left: 13px solid transparent;
+      border-right: 13px solid transparent;
+    }
+  }
 `;
 
 const Segment = ({ className, color }) => {

@@ -24,6 +24,10 @@ const StyledTitle = styled.h2`
     margin-top: 12px;
     display: flex;
   }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 24px;
+  }
 `;
 
 const Title = ({ children, colorOne, colorTwo }) => {

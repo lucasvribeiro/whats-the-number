@@ -27,6 +27,7 @@ const Input = ({ placeholder, value, onChange, disabled }) => {
       value={value}
       onChange={onChange}
       disabled={disabled}
+      type="number"
     />
   );
 };

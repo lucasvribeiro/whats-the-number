@@ -7,6 +7,8 @@ import Digit from "./components/Digit/Digit";
 
 import { getNumber } from "./services/api";
 
+import { MIN_VALUE, MAX_VALUE } from "./services/consts";
+
 import "./App.css";
 
 import {
@@ -87,7 +89,11 @@ function App() {
   };
 
   const handleGuessChanged = (e) => {
-    setGuessNumber(e.target.value);
+    if (
+      parseInt(e.target.value) <= MAX_VALUE &&
+      parseInt(e.target.value) >= MIN_VALUE
+    )
+      setGuessNumber(e.target.value);
   };
 
   const getNumberFromApi = () => {
@@ -97,7 +103,7 @@ function App() {
         setDrawnNumber(res.data.value);
       })
       .catch((error) => {
-        console.log(error.data.status);
+        console.log(error.data);
       });
   };
 

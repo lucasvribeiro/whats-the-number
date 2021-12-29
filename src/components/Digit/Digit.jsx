@@ -57,6 +57,11 @@ const StyledDigit = styled.div`
 
   position: relative;
   margin: 8px;
+
+  @media only screen and (max-width: 480px) {
+    height: 104px;
+    width: 58px;
+  }
 `;
 
 const Digit = ({ digit, color }) => {
