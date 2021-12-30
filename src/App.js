@@ -71,13 +71,13 @@ function App() {
     else if (number < drawnNumber) setGameStatus(statusOptions[3]);
   };
 
-  const breakNumber = () => {
-    return guessNumber.split("").map((digit) => parseInt(digit));
+  const breakNumber = (number) => {
+    return number.split("").map((digit) => parseInt(digit));
   };
 
   const handleGuessButton = () => {
     checkGuessStatus();
-    setGuessNumberDigits(breakNumber());
+    setGuessNumberDigits(breakNumber(guessNumber));
     setGuessNumber("");
   };
 
@@ -104,6 +104,9 @@ function App() {
       })
       .catch((error) => {
         console.log(error.response);
+
+        setGuessNumberDigits(breakNumber(error.response.status.toString()));
+        setGameStatus(statusOptions[4]);
       });
   };
 
@@ -150,7 +153,7 @@ function App() {
               bgColorTwo="#9E9E9E"
               onClick={handleNewGameButton}
             >
-              <img src={refreshImg} alt="New gate" className="new-game-img"/>
+              <img src={refreshImg} alt="New gate" className="new-game-img" />
               NOVA PARTIDA
             </Button>
           </div>
