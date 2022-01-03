@@ -126,8 +126,6 @@ function App() {
         setDrawnNumber(res.data.value);
       })
       .catch((error) => {
-        console.log(error.response);
-
         setGuessNumberDigits(breakNumber(error.response.status.toString()));
         setGameStatus(statusOptions[4]);
       });

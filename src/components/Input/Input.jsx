@@ -51,7 +51,7 @@ const Input = ({ placeholder, value, onChange, disabled, triggerButton }) => {
 Input.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
-  value: PropTypes.number,
+  value: PropTypes.string,
   onChange: PropTypes.func,
   triggerButton: PropTypes.func,
 };

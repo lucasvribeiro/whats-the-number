@@ -1,6 +1,6 @@
 {
-  "short_name": "What's the Number?",
-  "name": "A game to find what's the drawn number.",
+  "short_name": "Qual é o Número?",
+  "name": "Descubra qual é o número sorteado",
   "icons": [
     {
       "src": "favicon.ico",
