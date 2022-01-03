@@ -123,7 +123,6 @@ function App() {
   const getNumberFromApi = () => {
     getNumber()
       .then((res) => {
-        console.log(res.data.value);
         setDrawnNumber(res.data.value);
       })
       .catch((error) => {
