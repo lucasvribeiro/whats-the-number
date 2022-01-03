@@ -94,6 +94,8 @@ function App() {
    * @summary Function triggered when user hits the Submit guess button.
    */
   const handleGuessButton = () => {
+    document.getElementById("guess-input").focus();
+
     setGuessCount(guessCount + 1);
     setGuessNumberDigits(breakNumber(guessNumber));
     setGuessNumber("");
@@ -227,6 +229,7 @@ function App() {
 
       <div className="bottom-container">
         <Input
+          id="guess-input"
           placeholder="Digite o palpite"
           value={guessNumber}
           triggerButton={guessNumber ? handleGuessButton : function () {}}

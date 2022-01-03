@@ -16,7 +16,6 @@ const StyledInput = styled.input`
   padding: 0 12px;
 
   margin: 0 4px;
-
   transition: all 0.3s ease;
 
   &:focus {
@@ -25,7 +24,14 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ placeholder, value, onChange, disabled, triggerButton }) => {
+const Input = ({
+  id,
+  placeholder,
+  value,
+  onChange,
+  disabled,
+  triggerButton,
+}) => {
   /**
    * @summary Trigger the submit button when user types "Enter".
    * @param {object} e The event from keyboard.
@@ -38,6 +44,7 @@ const Input = ({ placeholder, value, onChange, disabled, triggerButton }) => {
 
   return (
     <StyledInput
+      id={id}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
@@ -49,6 +56,7 @@ const Input = ({ placeholder, value, onChange, disabled, triggerButton }) => {
 };
 
 Input.propTypes = {
+  id: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   value: PropTypes.string,
@@ -57,6 +65,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  id: "guess-input",
   placeholder: "Digite o palpite",
   disabled: false,
 };
