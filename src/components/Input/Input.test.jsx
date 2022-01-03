@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { fireEvent } from "@testing-library/react";
 
 import Input from "./Input";
@@ -31,13 +30,6 @@ describe("Input Component", () => {
     const input = screen.getByTestId("input");
 
     expect(input).not.toHaveAttribute("disabled");
-  });
-
-  it("should render initial value correclty", () => {
-    render(<Input value="7" />);
-    const input = screen.getByTestId("input");
-
-    expect(input).toHaveAttribute("value", "7");
   });
 
   it("should call onChange when value change", () => {

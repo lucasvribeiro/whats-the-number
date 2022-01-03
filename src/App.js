@@ -6,7 +6,7 @@ import Title from "./components/Title/Title";
 import Digit from "./components/Digit/Digit";
 import Label from "./components/Label/Label";
 
-import { getNumber } from "./services/api";
+import { getNumber } from "./services/api/api";
 import refreshImg from "./images/refresh.png";
 import { MIN_VALUE, MAX_VALUE } from "./services/consts";
 
