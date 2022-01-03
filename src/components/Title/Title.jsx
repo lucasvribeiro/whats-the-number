@@ -1,4 +1,8 @@
-import React from "react";
+/**
+ * @summary This is a Title component with a two-color gradient.
+ *          Prop-types are in the end of the file.
+ */
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledTitle = styled.h2`
@@ -36,6 +40,16 @@ const Title = ({ children, colorOne, colorTwo }) => {
       {children}
     </StyledTitle>
   );
+};
+
+Title.propTypes = {
+  colorOne: PropTypes.string,
+  colorTwo: PropTypes.string,
+};
+
+Title.defaultProps = {
+  colorOne: "#ef6c00",
+  colorTwo: "#c0661c",
 };
 
 export default Title;

@@ -1,5 +1,10 @@
-import styled from "styled-components";
+/**
+ * @summary This is a 7-segment Digit component.
+ *          Prop-types are in the end of the file.
+ */
 
+import styled from "styled-components";
+import PropTypes from "prop-types";
 import Segment from "../Segment/Segment";
 
 import {
@@ -11,42 +16,6 @@ import {
   bottom,
   middle,
 } from "../../services/segments";
-
-// Function to check if a specific segment should be on or off acording to the incoming digit
-const segmentIsOn = (digit, segment) => {
-  switch (segment) {
-    case "left-top":
-      if (leftTop.includes(digit)) return true;
-      return false;
-
-    case "right-top":
-      if (rightTop.includes(digit)) return true;
-      return false;
-
-    case "left-bottom":
-      if (leftBottom.includes(digit)) return true;
-      return false;
-
-    case "right-bottom":
-      if (rightBottom.includes(digit)) return true;
-      return false;
-
-    case "top":
-      if (top.includes(digit)) return true;
-      return false;
-
-    case "bottom":
-      if (bottom.includes(digit)) return true;
-      return false;
-
-    case "middle":
-      if (middle.includes(digit)) return true;
-      return false;
-
-    default:
-      return 0;
-  }
-};
 
 const StyledDigit = styled.div`
   height: 140px;
@@ -65,6 +34,46 @@ const StyledDigit = styled.div`
 `;
 
 const Digit = ({ digit, color }) => {
+  /**
+   * @summary Check if a specific segment should be ON or OFF acording to the incoming digit.
+   * @param {number} digit The incoming digit to be displayed (Example: 5)
+   * @param {string} segment The segment to be checked if should be ON or OFF (Example: "right-top")
+   */
+  const segmentIsOn = (digit, segment) => {
+    switch (segment) {
+      case "left-top":
+        if (leftTop.includes(digit)) return true;
+        return false;
+
+      case "right-top":
+        if (rightTop.includes(digit)) return true;
+        return false;
+
+      case "left-bottom":
+        if (leftBottom.includes(digit)) return true;
+        return false;
+
+      case "right-bottom":
+        if (rightBottom.includes(digit)) return true;
+        return false;
+
+      case "top":
+        if (top.includes(digit)) return true;
+        return false;
+
+      case "bottom":
+        if (bottom.includes(digit)) return true;
+        return false;
+
+      case "middle":
+        if (middle.includes(digit)) return true;
+        return false;
+
+      default:
+        return 0;
+    }
+  };
+
   return (
     <StyledDigit digit={digit}>
       <Segment
@@ -110,6 +119,16 @@ const Digit = ({ digit, color }) => {
       />
     </StyledDigit>
   );
+};
+
+Digit.propTypes = {
+  digit: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).isRequired,
+  color: PropTypes.string,
+};
+
+Digit.defaultProps = {
+  digit: 0,
+  color: "#dddddd",
 };
 
 export default Digit;

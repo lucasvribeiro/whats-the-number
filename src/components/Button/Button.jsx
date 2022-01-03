@@ -1,3 +1,8 @@
+/**
+ * @summary This is a Button component with a two-color background gradient.
+ *          Prop-types are in the end of the file.
+ */
+
 import styled from "styled-components";
 import PropTypes from "prop-types";
 

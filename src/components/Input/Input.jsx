@@ -1,3 +1,8 @@
+/**
+ * @summary This is an Input component to get the user guess number.
+ *          Prop-types are in the end of the file.
+ */
+
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -21,7 +26,10 @@ const StyledInput = styled.input`
 `;
 
 const Input = ({ placeholder, value, onChange, disabled, triggerButton }) => {
-  // Trigger Button when 'Enter' is pressed
+  /**
+   * @summary Trigger the submit button when user types "Enter".
+   * @param {object} e The event from keyboard.
+   */
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       triggerButton();
@@ -43,6 +51,9 @@ const Input = ({ placeholder, value, onChange, disabled, triggerButton }) => {
 Input.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
+  value: PropTypes.number,
+  onChange: PropTypes.func,
+  triggerButton: PropTypes.func,
 };
 
 Input.defaultProps = {

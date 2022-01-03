@@ -1,3 +1,9 @@
+/**
+ * @summary This is a Segment component to be used in the 7-segment display (Digit component).
+ *          Prop-types are in the end of the file.
+ */
+
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledSegment = styled.div`
@@ -232,6 +238,15 @@ const Segment = ({ className, color }) => {
       <div className={className} />
     </StyledSegment>
   );
+};
+
+Segment.propTypes = {
+  className: PropTypes.string,
+  color: PropTypes.string,
+};
+
+Segment.defaultProps = {
+  color: "#dddddd",
 };
 
 export default Segment;

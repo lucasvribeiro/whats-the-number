@@ -6,8 +6,8 @@ import Title from "./components/Title/Title";
 import Digit from "./components/Digit/Digit";
 
 import { getNumber } from "./services/api";
-import { MIN_VALUE, MAX_VALUE } from "./services/consts";
 import refreshImg from "./images/refresh.png";
+import { MIN_VALUE, MAX_VALUE } from "./services/consts";
 
 import "./App.css";
 
