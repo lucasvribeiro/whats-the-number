@@ -4,12 +4,18 @@ import Button from "./components/Button/Button";
 import Input from "./components/Input/Input";
 import Title from "./components/Title/Title";
 import Digit from "./components/Digit/Digit";
+import Label from "./components/Label/Label";
 
 import { getNumber } from "./services/api";
 import refreshImg from "./images/refresh.png";
 import { MIN_VALUE, MAX_VALUE } from "./services/consts";
 
 import "./App.css";
+
+import {
+  getRecordFromLocalStorage,
+  setRecordToLocalStorage,
+} from "./services/record";
 
 import {
   defaultLabelColor,
@@ -59,7 +65,8 @@ function App() {
   const [drawnNumber, setDrawnNumber] = useState(); //Random value from the API
   const [guessNumber, setGuessNumber] = useState(""); //User's guess
   const [gameStatus, setGameStatus] = useState(statusOptions[0]); //Game current status
-  const [guessCount, setGuessCount] = useState(0);
+  const [guessCount, setGuessCount] = useState(0); //Users's current game guess count
+  const [record, setRecord] = useState(getRecordFromLocalStorage()); //User's all time record
 
   //User's guess after breaking digits (Example: from guessNumber = 87, guessNumberDigits will be [8,7])
   const [guessNumberDigits, setGuessNumberDigits] = useState(null);
@@ -87,10 +94,10 @@ function App() {
    * @summary Function triggered when user hits the Submit guess button.
    */
   const handleGuessButton = () => {
-    checkGuessStatus();
+    setGuessCount(guessCount + 1);
     setGuessNumberDigits(breakNumber(guessNumber));
     setGuessNumber("");
-    setGuessCount(guessCount + 1);
+    checkGuessStatus();
   };
 
   /**
@@ -126,6 +133,7 @@ function App() {
   const getNumberFromApi = () => {
     getNumber()
       .then((res) => {
+        console.log(res.data.value);
         setDrawnNumber(res.data.value);
       })
       .catch((error) => {
@@ -142,6 +150,18 @@ function App() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  /**
+   * @summary Changes the user's record in the end of the game (if it's necessary)
+   */
+  useEffect(() => {
+    if ((guessCount < record || !record) && gameStatus.type === "correct") {
+      setRecord(guessCount);
+      setRecordToLocalStorage(guessCount);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [guessCount]);
 
   return (
     <div className="App">
@@ -180,9 +200,16 @@ function App() {
           )}
         </div>
 
-        <div className="guess-count-container">
-          Palpites: &nbsp;
-          <strong>{guessCount}</strong>
+        <div className="guess-count-record-container">
+          <Label>
+            Palpites: &nbsp;
+            <strong>{guessCount}</strong>
+          </Label>
+
+          <Label bgColorOne="#ef6c00" bgColorTwo="#c0661c">
+            Record: &nbsp;
+            <strong>{record || "--"}</strong>
+          </Label>
         </div>
 
         {(gameStatus.type === "correct" || gameStatus.type === "error") && (
@@ -203,7 +230,7 @@ function App() {
         <Input
           placeholder="Digite o palpite"
           value={guessNumber}
-          triggerButton={handleGuessButton}
+          triggerButton={guessNumber ? handleGuessButton : function () {}}
           onChange={handleGuessChanged}
           disabled={
             gameStatus.type === "error" || gameStatus.type === "correct"
