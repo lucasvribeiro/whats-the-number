@@ -56,13 +56,16 @@ const statusOptions = [
 ];
 
 function App() {
-  const [drawnNumber, setDrawnNumber] = useState();
+  const [drawnNumber, setDrawnNumber] = useState(); //Random value from the API
+  const [guessNumber, setGuessNumber] = useState(""); //User's guess
+  const [gameStatus, setGameStatus] = useState(statusOptions[0]); //Game current status
 
-  const [guessNumber, setGuessNumber] = useState("");
+  //User's guess after breaking digits (Example: from guessNumber = 87, guessNumberDigits will be [8,7])
   const [guessNumberDigits, setGuessNumberDigits] = useState(null);
 
-  const [gameStatus, setGameStatus] = useState(statusOptions[0]);
-
+  /**
+   * @summary Changes gameStatus based on user guessNumber.
+   */
   const checkGuessStatus = () => {
     const number = parseInt(guessNumber);
 
@@ -71,16 +74,26 @@ function App() {
     else if (number < drawnNumber) setGameStatus(statusOptions[3]);
   };
 
+  /**
+   * @summary Breaks the guessNumber in an array of digits (Example: 145 will become [1,4,5])
+   * @param {number} number The user's guess.
+   */
   const breakNumber = (number) => {
     return number.split("").map((digit) => parseInt(digit));
   };
 
+  /**
+   * @summary Function triggered when user hits the Submit guess button.
+   */
   const handleGuessButton = () => {
     checkGuessStatus();
     setGuessNumberDigits(breakNumber(guessNumber));
     setGuessNumber("");
   };
 
+  /**
+   * @summary Creates a new game (Triggered when user hits the New Game button).
+   */
   const handleNewGameButton = () => {
     setGameStatus(statusOptions[0]);
     setGuessNumber("");
@@ -88,6 +101,10 @@ function App() {
     getNumberFromApi();
   };
 
+  /**
+   * @summary Handle and validate the user's input value (Integer, positive and between MIN_VALUE and MAX_VALUE).
+   * @param {object} e The event from guess input.
+   */
   const handleGuessChanged = (e) => {
     const value = e.target.value;
 
@@ -100,6 +117,9 @@ function App() {
     } else setGuessNumber("");
   };
 
+  /**
+   * @summary Gets the random number from API.
+   */
   const getNumberFromApi = () => {
     getNumber()
       .then((res) => {
@@ -114,8 +134,13 @@ function App() {
       });
   };
 
+  /**
+   * @summary Gets the number from API when page is loaded.
+   */
   useEffect(() => {
     getNumberFromApi();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
