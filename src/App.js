@@ -149,6 +149,11 @@ function App() {
         <Title colorOne="#ef6c00" colorTwo="#c0661c">
           QUAL É O NÚMERO?
         </Title>
+
+        <div className="min-max-container">
+          Valor entre <strong>{MIN_VALUE}</strong> e{" "}
+          <strong>{MAX_VALUE}</strong>
+        </div>
       </div>
 
       <div className="center-container">
