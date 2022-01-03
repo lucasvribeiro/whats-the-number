@@ -24,6 +24,7 @@ const StyledLabel = styled.span`
 const Label = ({ children, fnColor, bgColorOne, bgColorTwo }) => {
   return (
     <StyledLabel
+      data-testid="label"
       fnColor={fnColor}
       bgColorOne={bgColorOne}
       bgColorTwo={bgColorTwo}

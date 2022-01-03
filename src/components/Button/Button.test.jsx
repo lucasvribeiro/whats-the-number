@@ -8,7 +8,7 @@ describe("Button Component", () => {
     render(<Button />);
     const button = screen.getByRole("button");
 
-    expect(button).toBeInTheDocument();
+    expect(button).toBeTruthy();
   });
 
   it("should render with a text when have a children", () => {

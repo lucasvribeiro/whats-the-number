@@ -44,6 +44,7 @@ const Input = ({
 
   return (
     <StyledInput
+      data-testid="input"
       id={id}
       placeholder={placeholder}
       value={value}

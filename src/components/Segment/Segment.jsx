@@ -234,7 +234,7 @@ const StyledSegment = styled.div`
 
 const Segment = ({ className, color }) => {
   return (
-    <StyledSegment color={color}>
+    <StyledSegment data-testid="segment" color={color}>
       <div className={className} />
     </StyledSegment>
   );

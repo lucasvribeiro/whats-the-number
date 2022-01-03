@@ -37,7 +37,7 @@ const StyledTitle = styled.h2`
 
 const Title = ({ children, colorOne, colorTwo }) => {
   return (
-    <StyledTitle colorOne={colorOne} colorTwo={colorTwo}>
+    <StyledTitle data-testid="title" colorOne={colorOne} colorTwo={colorTwo}>
       {children}
     </StyledTitle>
   );

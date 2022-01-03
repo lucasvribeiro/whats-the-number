@@ -75,7 +75,7 @@ const Digit = ({ digit, color }) => {
   };
 
   return (
-    <StyledDigit digit={digit}>
+    <StyledDigit digit={digit} data-testid="digit">
       <Segment
         color={color}
         className={`${
