@@ -89,11 +89,15 @@ function App() {
   };
 
   const handleGuessChanged = (e) => {
+    const value = e.target.value;
+
     if (
-      parseInt(e.target.value) <= MAX_VALUE &&
-      parseInt(e.target.value) >= MIN_VALUE
-    )
+      value.match("^[0-9]*$") != null &&
+      value >= MIN_VALUE &&
+      value <= MAX_VALUE
+    ) {
       setGuessNumber(e.target.value);
+    } else setGuessNumber("");
   };
 
   const getNumberFromApi = () => {
@@ -177,7 +181,9 @@ function App() {
           bgColorTwo="#c0661c"
           onClick={handleGuessButton}
           disabled={
-            gameStatus.type === "error" || gameStatus.type === "correct"
+            gameStatus.type === "error" ||
+            gameStatus.type === "correct" ||
+            !guessNumber
           }
         >
           ENVIAR
