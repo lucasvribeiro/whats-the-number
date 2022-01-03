@@ -34,15 +34,19 @@
   position: absolute;
 }
 
+.guess-count-container {
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
 .label-container {
   font-weight: bold;
   position: absolute;
-
 }
 
 .new-game-container {
   position: absolute;
-  top: 75%;
+  top: 85%;
 }
 
 .number-container {

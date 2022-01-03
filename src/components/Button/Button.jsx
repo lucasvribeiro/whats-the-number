@@ -25,6 +25,13 @@ const StyledButton = styled.button`
     ${(props) => props.bgColorTwo}
   );
 
+  &:hover {
+    background: linear-gradient(
+      ${(props) => `${props.bgColorOne}cc`},
+      ${(props) => `${props.bgColorTwo}cc`}
+    );
+  }
+
   &:disabled {
     background: #dddddd;
     cursor: not-allowed;

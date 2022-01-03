@@ -59,6 +59,7 @@ function App() {
   const [drawnNumber, setDrawnNumber] = useState(); //Random value from the API
   const [guessNumber, setGuessNumber] = useState(""); //User's guess
   const [gameStatus, setGameStatus] = useState(statusOptions[0]); //Game current status
+  const [guessCount, setGuessCount] = useState(0);
 
   //User's guess after breaking digits (Example: from guessNumber = 87, guessNumberDigits will be [8,7])
   const [guessNumberDigits, setGuessNumberDigits] = useState(null);
@@ -89,6 +90,7 @@ function App() {
     checkGuessStatus();
     setGuessNumberDigits(breakNumber(guessNumber));
     setGuessNumber("");
+    setGuessCount(guessCount + 1);
   };
 
   /**
@@ -99,6 +101,7 @@ function App() {
     setGuessNumber("");
     setGuessNumberDigits(null);
     getNumberFromApi();
+    setGuessCount(0);
   };
 
   /**
@@ -170,6 +173,11 @@ function App() {
               />
             ))
           )}
+        </div>
+
+        <div className="guess-count-container">
+          Palpites: &nbsp;
+          <strong>{guessCount}</strong>
         </div>
 
         {(gameStatus.type === "correct" || gameStatus.type === "error") && (
