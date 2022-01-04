@@ -19,6 +19,8 @@ const StyledButton = styled.button`
   font-weight: bold;
   font-family: "Roboto", sans-serif !important;
 
+  box-shadow: 1px 4px 22px -5px rgba(0, 0, 0, 0.15);
+
   color: ${(props) => props.fnColor};
   background: linear-gradient(
     ${(props) => props.bgColorOne},

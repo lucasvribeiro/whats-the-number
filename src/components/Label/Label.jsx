@@ -11,6 +11,7 @@ const StyledLabel = styled.span`
   width: fit-content;
   border-radius: 8px;
   font-size: 0.8rem;
+  box-shadow: 1px 4px 22px -5px rgba(0, 0, 0, 0.15);
 
   color: ${(props) => props.fnColor};
   background: linear-gradient(
